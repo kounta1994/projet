@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
     <head>
+	 <link type="text/css" rel="stylesheet" href="form.css" />
+	 <script type="text/javascript" src="formulaire.js"></script>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>TP2</title>
@@ -9,25 +11,41 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-
-        <style>
-          body{
-              background-color: #e9ebee;              
-              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-              font-size: 16px;
-              margin: 0 auto;
-              max-width: 800px;              
-          }
-        </style>
         
         <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
         <!--<link rel="stylesheet" href="style.css">-->
         <!--<script src="js/main.js"></script>-->
     </head>
-    <body>        
-        <h1>tp2</h1>
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
-    </body>
+   
+<body>
+ <form id="FormId" onsubmit="validation">
+            <fieldset>
+             <h1>
+              Saisie d'une fiche "Personne"
+				</h1>
+				 <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" value="" size="20" maxlength="20" />
+                <br />
+				 <label for="nom">Prenom</label>
+                <input type="text" id="prenom" name="nom" value="" size="20" maxlength="20" />
+                <br />
+
+                <label for="email">date de naissance<span class="requis"></span></label>
+                <input type="date" id="date" name="date" value="" size="20" maxlength="60" placeholder="JJ/MM/AAAA" />
+                <br />
+				<label for="nom">Adresse</label>
+                <input type="text" id="adr" name="adresse" value="" size="20" maxlength="20" />
+                <br />
+
+                <label for="email">email <span class="requis"></span></label>
+                <input type="text" id="email" name="email" value="" size="20" maxlength="60" />
+                <br />            
+
+                <input type="button" value="valider" class="sansLabel" onclick="validation()"/>
+                <br />
+            </fieldset>
+        </form>
+        <div id="error"> </div>
+        <div id="resultat"> </div> 
+</body>
 </html>
