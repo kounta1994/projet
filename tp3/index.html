@@ -1,33 +1,132 @@
 <!doctype html>
 <html>
     <head>
-        <meta charset="utf-8">
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>TP3</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        
+       <script src="js/jquery-3.2.1.slim.min.js"></script>
+         <link rel="stylesheet" href="css/bootstrap.min.css">
+         <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+ 
+         <link rel="stylesheet" href="css/jquery-ui.css">
+        <script type="text/javascript" src="js/form-jquery-validation.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        
+       
+      
+   
         <!-- Place favicon.ico in the root directory -->
 
         <style>
           body{
               background-color: #e9ebee;              
-              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+              font-family: system, "-apple-system", ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
               font-size: 16px;
               margin: 0 auto;
-              max-width: 800px;              
+              max-width: 800px;      
+          
           }
+          #myModal img{
+            max-width: 100% ;
+          }
+   
         </style>
-        
+<style>
+    fieldset {
+    padding: 12px;
+    font-family: system, "-apple-system", ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+    border: 4px #0568CD solid;
+    font-size: 19%;
+    background-color:#f2f2f2;
+    background-image:url(im7.jpg);
+    
+
+}
+        </style>
         <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
         <!--<link rel="stylesheet" href="style.css">-->
         <!--<script src="main.js"></script>-->
-    </head>
-    <body>        
-        <h1>tp3</h1>
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
-    </body>
+ 
+ 
+
+</head>
+<body>  
+<div class="container">          
+<fieldset>
+<div class="row">
+  <!-- Content here -->
+  <div class="col-sm-9">
+  <form method="POST" action="index.html">
+       
+ <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">NOM</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control form-control-sm" id="nom" placeholder="NOM">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Prenom</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control form-control-sm" id="prenom" placeholder="PRENOM">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Date de naissance</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control form-control-sm" id="date" placeholder="DATE DE NAISSANCE">
+    </div>
+  </div>   
+ 
+    <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Adresse</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control form-control-sm" id="adresse" placeholder="ADRESSE">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Email</label>
+    <div class="col-sm-7">
+      <input type="email" class="form-control form-control-sm" id="email" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group row">
+      <div class="col-sm-5">
+  <button type="submit" id="submit" class="btn btn-primary">valider</button>
+  </div>
+  </div>
+  
+</form>
+</div>
+<div class="col-sm-3">
+    <img src="im2.png" class="float left" width="105%" >
+</div>
+</div>
+</fieldset>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Bienvenu(e)</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Veuillez remplir tous les champs!
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >OK</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</body>
 </html>
