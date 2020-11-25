@@ -1,33 +1,206 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>TP4</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+<head>
 
-        <style>
-          body{
-              background-color: #e9ebee;              
-              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-              font-size: 16px;
-              margin: 0 auto;
-              max-width: 800px;              
-          }
-        </style>
-        
-        <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-        <!--<link rel="stylesheet" href="style.css">-->
-        <!--<script src="main.js"></script>-->
-    </head>
-    <body>        
-        <h1>TP4</h1>
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
-    </body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>TP4</title>
+
+  <script src="js/jquery-3.2.1.slim.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <script type="text/javascript" src="js/form-jquery-validation.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/gps.js"></script>
+
+
+
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <style>
+    body {
+      background-color: #e9ebee;
+      font-family: system, "-apple-system", ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+      font-size: 16px;
+      margin: 0 auto;
+      max-width: 800px;
+
+    }
+
+    #myModal img {
+      max-width: 100%;
+    }
+    
+      #map img {
+        max-width: 100%;
+      }
+
+    
+
+    #sub {
+      max-width: 100%;
+    }
+  </style>
+  <style>
+    fieldset {
+      padding: 16px;
+      font-family: system, "-apple-system", ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+      border: 5px #0568CD solid;
+      /* font-size: 19%; */
+      background-color: #f2f2f2;
+      background-image: url(im12.png);
+    }
+
+    table {
+      border: 3px #cc66ff solid;
+      border-collapse: collapse;
+    }
+  </style>
+  <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
+  <!--<link rel="stylesheet" href="style.css">-->
+  <!--<script src="main.js"></script>-->
+  <script>
+    function KeyPress() {
+      var
+        total = document.getElementById("nom").value.length;
+      total1 = document.getElementById("prenom").value.length;
+      total2 = document.getElementById("date").value.length;
+      total3 = document.getElementById("adresse").value.length;
+      total4 = document.getElementById("email").value.length;
+      document.getElementById("compteur").innerHTML = total + " Car";
+      document.getElementById("compteur1").innerHTML = total1 + " Caractere(s)";
+      document.getElementById("compteur2").innerHTML = total2 + " Caractere(s)";
+      document.getElementById("compteur3").innerHTML = total3 + " Caractere(s)";
+      document.getElementById("compteur4").innerHTML = total4 + " Caractere(s)";
+    }
+  </script>
+  <script src="js/store.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <fieldset>
+      <div class="row">
+        <!-- Content here -->
+        <div class="col-sm-9">
+          <form method="POST" action="index.html">
+
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 col-form-label col-form-label-sm">NOM</label>
+              <div class="col-sm-7">
+                <input type="text" class="form-control form-control-sm" id="nom" onkeyup="KeyPress();"
+                  placeholder="NOM">
+                <div>
+                  <span id="compteur">0</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="firsname" class="col-sm-3 col-form-label col-form-label-sm">Prenom</label>
+              <div class="col-sm-7">
+                <input type="text" class="form-control form-control-sm" id="prenom" onkeyup="KeyPress();"
+                  placeholder="PRENOM">
+                <span id="compteur1">0</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="date" class="col-sm-3 col-form-label col-form-label-sm">Date de naissance</label>
+              <div class="col-sm-7">
+                <input type="text" class="form-control form-control-sm" id="date" onkeyup="KeyPress();"
+                  placeholder="DATE DE NAISSANCE">
+                <span id="compteur2">0</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <label for="map" class="col-sm-3 col-form-label col-form-label-sm">Adresse</label>
+              <div class="col-sm-7">
+                <input type="text" class="form-control form-control-sm" id="adresse" onkeyup="KeyPress();"
+                  placeholder="ADRESSE">
+                <div id="map">
+                  <!--  image Google Map à mettre à jour -->
+                 <!-- <img alt="map" width="100" src="https://maps.googleapis.com/maps/api/staticmap?markers=latitude,longitude&zoom=14&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg">
+                  <img alt="map" width="100" src="https://maps.googleapis.com/maps/api/staticmap?markers=latitude,longitude&zoom=14&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg"> -->
+                </div>
+                <span id="compteur3">0</span>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-warning" onclick="getLocation()">📍GPS</button>
+
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="mail" class="col-sm-3 col-form-label col-form-label-sm">Email</label>
+              <div class="col-sm-7">
+                <input type="email" class="form-control form-control-sm" id="email" onkeyup="KeyPress();"
+                  placeholder="Email">
+                <span id="compteur4">0</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-5">
+                <button type="submit" id="submit" class="btn btn-primary">Ajouter</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="col-sm-3">
+          <img src="im2.png" class="float left" width="105%">
+        </div>
+      </div>
+    </fieldset>
+    <hr>
+    <h4>Liste des contacts</h4>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Date de naissance</th>
+          <th>Adresse</th>
+
+
+          <th>Mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="https://maps.google.com/?q=Paris"></a>
+          </td>
+          <td>
+            <a href="mailto:sarah.oconnor@blabla.com"></a>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="https://maps.google.com/?q=Bali"></a>
+          </td>
+          <td>
+            <a href="mailto:jlv@blabla.com"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+
 </html>
